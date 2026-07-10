@@ -1,4 +1,5 @@
 iapiVersion: apps/v1
+#this is cluster
 kind: Deployment
 metadata:
     name: globomantics

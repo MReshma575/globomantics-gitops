@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-config
+  labels:
+    app: web
+data:
+  APP_NAME: "globomantics-web"
+  LOG_LEVEL: "info"

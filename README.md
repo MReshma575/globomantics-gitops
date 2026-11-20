@@ -27,3 +27,10 @@ This repository is designed to work with Argo CD for continuous deployment. The 
 - Kubernetes cluster with Argo CD installed
 - Argo CD configured to watch this repository
 - Proper RBAC permissions for the application namespace
+
+## Repository structure
+
+- `manifests/apps/web/base/` — environment-agnostic Kubernetes manifests (Deployment, Service, Ingress, HPA, ConfigMap)
+- `manifests/apps/web/overlays/dev|prod/` — Kustomize overlays: dev runs 1 replica with debug logging; prod runs 3 replicas with higher resource limits
+- `argocd/application.yaml` — Argo CD Application syncing the prod overlay with prune + selfHeal
+- Deep dive: [docs/gitops-workflow.md](docs/gitops-workflow.md) — how changes ship, rollback, and design choices
